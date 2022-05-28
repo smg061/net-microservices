@@ -35,6 +35,11 @@ namespace Catalog.API.Services.Repositories
                                           .FirstOrDefaultAsync();
         }
 
+        public async Task<Product> GetProduct(string id)
+        {
+            return await _context.Products.Find(p => p.Id == id).FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<Product>> GetProducts()
         {
             return await _context
