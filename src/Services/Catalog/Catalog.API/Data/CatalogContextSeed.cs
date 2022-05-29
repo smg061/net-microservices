@@ -7,7 +7,7 @@ namespace Catalog.API.Data
     {
         public static void SeedData(IMongoCollection<Product> products)
         {
-            bool existingProducts = true; //products.Find(p => true).Any();
+            bool existingProducts = products.Find(p => true).Any();
             if (!existingProducts)
             {
                 products.InsertManyAsync(GetPreconfiguredProducts());

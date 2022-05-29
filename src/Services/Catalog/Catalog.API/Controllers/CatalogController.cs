@@ -6,6 +6,7 @@ using System.Net;
 namespace Catalog.API.Controllers
 {
     [ApiController]
+    [Route("api/v1/[controller]")]
     public class CatalogController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
@@ -37,7 +38,7 @@ namespace Catalog.API.Controllers
             return Ok(result);
 
         }
-
+        [Route("[action]/{category}", Name = "GetProductByCategory")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
