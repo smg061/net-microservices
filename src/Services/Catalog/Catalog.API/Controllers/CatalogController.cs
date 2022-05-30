@@ -62,6 +62,20 @@ namespace Catalog.API.Controllers
         }
 
 
+        [HttpPatch]
+        [ProducesResponseType (typeof(Product), (int) HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateProduct([FromBody] Product product)
+        {
+            return Ok(await _productRepository.UpdateProduct(product));
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct (string id)
+        {
+            return Ok(await _productRepository.DeleteProduct(id));
+        }
+
+
 
     }
 }

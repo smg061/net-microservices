@@ -14,6 +14,7 @@ namespace Catalog.API.Extensions
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog.API", Version = "v1" });
             });
+            services.AddLogging();
             services.AddEndpointsApiExplorer();
             services.AddScoped<ICatalogContext, CatalogContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
