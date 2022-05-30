@@ -8,10 +8,10 @@ namespace Catalog.API.Repositories
 
     public interface IProductRepository {
 
-        Task<IEnumerable<Product>> GetProducts();
+        Task<IReadOnlyCollection<Product>> GetProducts();
         Task<Product> GetProductByName(string name);
         Task<Product> GetProduct(string id);
-        Task<IEnumerable<Product>> GetProductsByCategory(string categoryName);
+        Task<IReadOnlyCollection<Product>> GetProductsByCategory(string categoryName);
 
         Task CreateProduct(Product product);
 

@@ -40,16 +40,15 @@ namespace Catalog.API.Services.Repositories
             return await _context.Products.Find(p => p.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IReadOnlyCollection<Product>> GetProducts()
         {
             return await _context
                            .Products
-                           .Find(p => true)
-                           .ToListAsync();
+                           .Find(p => true).ToListAsync();
         }
 
 
-        public async Task<IEnumerable<Product>> GetProductsByCategory(string categoryName)
+        public async Task<IReadOnlyCollection<Product>> GetProductsByCategory(string categoryName)
         {
             var filter = Builders<Product>.Filter.Eq(p => p.Category, categoryName);
             return await _context.Products.Find(filter).ToListAsync();

@@ -10,7 +10,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddStackExchangeRedisCache(options=>
 {
-    var connectionString = builder.Configuration.GetValue<string>("CacheSettings:ConnectionString");
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
